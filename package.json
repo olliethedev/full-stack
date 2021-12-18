@@ -9,14 +9,17 @@
     "start": "next start",
     "lint": "eslint --fix --ext .js,.jsx .",
     "format": "prettier --write './**/*.{js,jsx,md,json}'",
-    "generate-client": "PRISMA_CLIENT_ENGINE_TYPE='dataproxy' prisma generate",
-    "migrate": "DATABASE_URL=\"$MIGRATE_DATABASE_URL\" prisma migrate deploy"
+    "migrate": "dotenv -e .env.development -- npx prisma migrate dev --name init --schema=./prisma/local.schema.prisma",
+    "seed": "dotenv -e .env.development -- npx prisma db seed --schema=./prisma/local.schema.prisma",
+    "generate": "dotenv -e .env.development -- npx prisma generate --schema=./prisma/local.schema.prisma",
+    "generate-remote": "dotenv -e .env.production -- npx prisma generate --schema=./prisma/schema.prisma"
   },
   "keywords": [],
   "author": "",
   "license": "MIT",
   "dependencies": {
     "@prisma/client": "^3.6.0",
+    "dotenv-cli": "^4.1.1",
     "next": "^10.0.0",
     "prop-types": "^15.7.2",
     "react": "^17.0.0",
