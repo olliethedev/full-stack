@@ -13,11 +13,6 @@ export const Header = () => {
           <b>Journal</b>
         </a>
       </Link>
-      <style jsx>{`
-        nav {
-          padding: 2rem;
-        }
-      `}</style>
     </nav>
   );
 };
