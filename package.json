@@ -10,7 +10,7 @@
     "lint": "eslint --fix --ext .js,.jsx .",
     "format": "prettier --write './**/*.{js,jsx,md,json}'",
     "generate-client": "PRISMA_CLIENT_ENGINE_TYPE='dataproxy' prisma generate",
-    "migrate": "DATABASE_URL='mysql://01rytoo4vh0q:pscale_pw_IOGhOCFfV6v1X5U4ouJutXVH6EWRJ7TRyeqc5HiCSig@q6pz4zluok01.us-east-2.psdb.cloud/full-stack?sslaccept=strict' prisma migrate deploy"
+    "migrate": "DATABASE_URL=\"$MIGRATE_DATABASE_URL\" prisma migrate deploy"
   },
   "keywords": [],
   "author": "",
