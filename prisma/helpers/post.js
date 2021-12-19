@@ -1,15 +1,17 @@
 import prisma from '../../lib/prisma';
 
+/**
+ * Creates a new user if none exist
+ */
 export const createUserIfNotExists = async ({email, name}) => {
   const user = await prisma.user.findUnique({
     where: { email },
   });
 
   if (user) {
-    console.log(`User with email ${email} already exists.`);
     return user;
   }
-  console.log(`Creating user with email ${email} and name ${name}.`);
+  
   return prisma.user.create({
     data: {
       email,

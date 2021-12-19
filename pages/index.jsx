@@ -23,7 +23,7 @@ const metadata = {
 const Journal = ({ posts }) => {
   const [postsList, setPostsList] = useState(posts);
   const { data: session } = useSession();
-  console.log(session);
+
   const onEntryCreateListener = useCreatePostApi(postsList, setPostsList);
 
   return (

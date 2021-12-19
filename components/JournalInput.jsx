@@ -31,9 +31,7 @@ const JournalInput = ({ onEntryCreateListener, userEmail }) => {
       <div className="p-2 bg-gray-100 rounded-full">
         <AuthorInfo
           author={{
-            id: 0,
             email: userEmail ?? 'Anonymous',
-            name: userEmail ?? 'Anonymous',
           }}
         />
       </div>

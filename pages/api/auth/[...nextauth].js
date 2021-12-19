@@ -1,6 +1,9 @@
 import NextAuth from 'next-auth';
 import GithubProvider from 'next-auth/providers/github';
 
+/**
+ * Handles authentication for the app.
+ */
 export default NextAuth({
   secret: process.env.NEXT_AUTH_SECRET,
   providers: [
