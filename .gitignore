@@ -1,6 +1,7 @@
 .next/
 .env
 .env.production
+.env.development
 
 # Local SQLite db
 /prisma/dev.db

@@ -1,4 +1,6 @@
 import PropTypes from 'prop-types';
+import { useState } from 'react';
+import { useSession } from 'next-auth/react';
 
 import { Layout } from '../components/Layout';
 import { PostShape } from '../prop-shapes/post';
@@ -6,7 +8,6 @@ import { fetchPosts } from '../prisma/helpers/post';
 
 import Head from '../components/Head';
 import JournalInput from '../components/JournalInput';
-import { useState } from 'react';
 import { useCreatePostApi } from '../utils/API';
 import PostList from '../components/PostList';
 
@@ -21,6 +22,8 @@ const metadata = {
  */
 const Journal = ({ posts }) => {
   const [postsList, setPostsList] = useState(posts);
+  const { data: session } = useSession();
+  console.log(session);
   const onEntryCreateListener = useCreatePostApi(postsList, setPostsList);
 
   return (
@@ -32,7 +35,10 @@ const Journal = ({ posts }) => {
           <span className="text-2xl text-gray-700">({postsList.length})</span>
         </h1>
         <PostList posts={postsList} />
-        <JournalInput onEntryCreateListener={onEntryCreateListener} />
+        <JournalInput
+          userEmail={session?.user?.email}
+          onEntryCreateListener={onEntryCreateListener}
+        />
       </div>
     </Layout>
   );
