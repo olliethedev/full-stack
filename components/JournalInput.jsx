@@ -8,6 +8,7 @@ import AuthorInfo from './AuthorInfo';
 const JournalInput = ({ onEntryCreateListener, userEmail }) => {
   const [title, setTitle] = useState('');
   const [content, setContent] = useState('');
+
   const formSubmit = useCallback(
     (e) => {
       e.preventDefault();
@@ -29,11 +30,7 @@ const JournalInput = ({ onEntryCreateListener, userEmail }) => {
     <div className="flex flex-col items-start space-y-2 p-4 border-t-2 border-gray-300">
       <h1 className="text-2xl">New post:</h1>
       <div className="p-2 bg-gray-100 rounded-full">
-        <AuthorInfo
-          author={{
-            email: userEmail ?? 'Anonymous',
-          }}
-        />
+        <AuthorInfo email={userEmail} />
       </div>
       <div className="min-w-0 w-full">
         <form className="relative flex flex-col space-y-2">

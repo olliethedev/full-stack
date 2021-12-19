@@ -11,12 +11,12 @@ export const Post = ({ post }) => {
       <div className="w-full bg-gradient-to-r from-blue-500 to-cyan-500 p-2 text-white">
         <h3 className="font-light">Post</h3>
         <h1 className="text-3xl font-bold">{post.title}</h1>
-        <AuthorInfo author={post.author} />
+        <AuthorInfo email={post?.author?.email} />
       </div>
       <div className="text-gray-600 p-2">
         <p>{post.content}</p>
         <span className="text-sm text-gray-300">
-          Published: {new Date(post.createdAt).toLocaleString()}
+          Published: {new Date(post.createdAt).toLocaleDateString()}
         </span>
       </div>
     </div>
