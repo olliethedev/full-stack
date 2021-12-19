@@ -1,5 +1,23 @@
 import prisma from '../../lib/prisma';
 
+export const createUserIfNotExists = async ({email, name}) => {
+  const user = await prisma.user.findUnique({
+    where: { email },
+  });
+
+  if (user) {
+    console.log(`User with email ${email} already exists.`);
+    return user;
+  }
+  console.log(`Creating user with email ${email} and name ${name}.`);
+  return prisma.user.create({
+    data: {
+      email,
+      name
+    },
+  });
+};
+
 /**
  * Finds unique post by id
  */

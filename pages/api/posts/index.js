@@ -1,7 +1,21 @@
-import { fetchPosts, createPost } from '../../../prisma/helpers/post';
+import {
+  fetchPosts,
+  createPost,
+  createUserIfNotExists,
+} from '../../../prisma/helpers/post';
+import { getSession } from 'next-auth/react';
 
 const handlePOST = async (req, res) => {
-  const post = await createPost(req.body);
+  const session = await getSession({ req });
+  console.log(session);
+  console.log(req.body);
+  const { title, content } = req.body;
+  let authorId = null;
+  if (session) {
+    const user = await createUserIfNotExists(session.user);
+    authorId = user.id;
+  }
+  const post = await createPost({ content, title, authorId });
   res.json(post);
 };
 
