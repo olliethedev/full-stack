@@ -1,10 +1,10 @@
-import { Header } from './Header';
+import { NavBar } from './NavBar';
 import PropTypes from 'prop-types';
 
 export const Layout = ({ children }) => (
   <>
-    <Header />
-    <div className="layout">{children}</div>
+    <NavBar />
+    <div className="max-w-screen-md mx-auto">{children}</div>
   </>
 );
 

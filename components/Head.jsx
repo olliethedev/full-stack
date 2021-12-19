@@ -1,13 +1,10 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import { default as NextHead } from 'next/head';
+import { MetadataShape } from '../prop-shapes/metadata';
 
-const Head = ({ title, description }) => {
+const Head = ({ metadata }) => {
   return (
     <NextHead>
-      <title>{title}</title>
-      {description && <meta name="description" content={description} />}
-      <link rel="icon" href="/static/favicon.ico" />
       <link rel="preconnect" href="https://fonts.googleapis.com" />
       <link
         rel="preconnect"
@@ -18,14 +15,14 @@ const Head = ({ title, description }) => {
         href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;1,100;1,300;1,400;1,500;1,700&display=swap"
         rel="stylesheet"
       />
+      <title>Title:{metadata.title}</title>
+      <meta name="description" content={metadata.description} />
+      <link rel="icon" href="/static/favicon.ico" />
     </NextHead>
   );
 };
+
 Head.propTypes = {
-  title: PropTypes.string,
-  description: PropTypes.string,
-};
-Head.defaultProps = {
-  title: 'My Journal',
+  metadata: MetadataShape.isRequired,
 };
 export default Head;
