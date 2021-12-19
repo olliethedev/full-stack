@@ -11,7 +11,7 @@ export const createUserIfNotExists = async ({email, name}) => {
   if (user) {
     return user;
   }
-  
+
   return prisma.user.create({
     data: {
       email,
@@ -49,7 +49,7 @@ export const fetchPosts = () => {
  */
 export const createPost = async (data) => {
   const { title, content, authorId } = data;
-  const postToCreate = { title, content, authorId, createdAt: new Date() };
+  const postToCreate = { title, content, authorId, createdAt: new Date(Date.now()).toISOString() };
 
   return prisma.post.create({
     data: postToCreate,
