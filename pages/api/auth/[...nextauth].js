@@ -9,4 +9,9 @@ export default NextAuth({
       clientSecret: process.env.GITHUB_SECRET,
     }),
   ],
+  theme: {
+    colorScheme: 'light',
+    brandColor: '#0070f3',
+    logo: 'https://full-stack-journal.olliecodes.com/journal.png',
+  },
 });
