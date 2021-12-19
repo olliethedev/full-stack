@@ -3,7 +3,7 @@ const { PrismaClient } = require('@prisma/client');
 const prisma = new PrismaClient();
 
 const userData = [
-  {
+{
     name: 'Jane',
     email: 'jane@example.com',
     posts: {
@@ -11,6 +11,7 @@ const userData = [
         {
           title: 'First Post',
           content: 'Hello, World!',
+          createdAt: new Date(),
         },
       ],
     },
@@ -23,15 +24,17 @@ const userData = [
         {
           title: 'Second Post',
           content: 'Hello, Journal!',
+          createdAt: new Date(),
         },
       ],
     },
-  },
+  }
 ];
 
 async function main() {
   console.log(`Start seeding ...`);
   for (const u of userData) {
+    console.log(u)
     const user = await prisma.user.create({
       data: u,
     });

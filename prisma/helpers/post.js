@@ -1,14 +1,40 @@
 import prisma from '../../lib/prisma';
 
-export const fetchPosts = () => {
-  return prisma.post.findMany({
-    include: { author: true },
-  });
-};
-
+/**
+ * Finds unique post by id
+ */
 export const findPost = (id) => {
   return prisma.post.findUnique({
     where: { id: Number(id) },
     include: { author: true },
+  });
+};
+
+/**
+ * Finds all posts in the database
+ */
+export const fetchPosts = () => {
+  return prisma.post.findMany({
+    include: { author: true },
+    orderBy: [
+      {
+        createdAt: 'asc',
+      },
+    ],
+  });
+};
+
+/**
+ * Create a new post and returns the created post
+ */
+export const createPost = async (data) => {
+  const { title, content, authorId } = data;
+  const postToCreate = { title, content, authorId, createdAt: new Date() };
+
+  return prisma.post.create({
+    data: postToCreate,
+    include: {
+      author: true,
+    },
   });
 };

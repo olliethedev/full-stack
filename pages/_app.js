@@ -1,7 +1,7 @@
 import '../styles/globals.css';
 import PropTypes from 'prop-types';
 
-// This default export is required in a new `pages/_app.js` file.
+// This component is the root of our application.
 export default function MyApp({ Component, pageProps }) {
   return <Component {...pageProps} />;
 }

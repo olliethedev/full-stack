@@ -1,17 +1,19 @@
 import Link from 'next/link';
 import { useRouter } from 'next/router';
-import Image from 'next/image';
 
+/**
+ * NavBar component for the application.
+ */
 export const NavBar = () => {
   const { pathname } = useRouter();
 
   const isActive = (path) => pathname === path;
 
   return (
-    <nav className="p-4 w-full sticky bg-gray-900 text-white">
+    <nav className="fixed p-4 w-full bg-gray-900 text-white">
       <div className="max-w-screen-md mx-auto flex justify-between items-center">
         <div className="flex space-x-2 items-center">
-          <Image src="/static/journal.svg" height={30} width={30} />
+          <img src="../static/journal.svg" className="w-8 h-8" alt="Logo" />
           <Link href="/">
             <a
               className={

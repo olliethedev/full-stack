@@ -5,7 +5,9 @@ const handleGET = async (postId, res) => {
   res.json(post);
 };
 
-// GET /api/posts/:id
+/**
+ * Handles GET and POST requests for /api/posts/:id
+ */
 export default async (req, res) => {
   const postId = req.query.id;
 
