@@ -42,7 +42,6 @@ const JournalInput = ({ onEntryCreateListener }) => {
               onChange={(e) => setTitle(e.target.value)}
               className="block w-full p-3 border-0 resize-none focus:ring-0 sm:text-sm"
               placeholder="Add your title..."
-              defaultValue={''}
             />
           </div>
           <div className="border border-gray-300 rounded-lg shadow-sm overflow-hidden focus-within:border-indigo-500 focus-within:ring-1 focus-within:ring-indigo-500">
@@ -54,7 +53,6 @@ const JournalInput = ({ onEntryCreateListener }) => {
               onChange={(e) => setContent(e.target.value)}
               className="block w-full p-3 border-0 resize-none focus:ring-0 sm:text-sm"
               placeholder="Add your description..."
-              defaultValue={''}
             />
           </div>
           <div>

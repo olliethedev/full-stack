@@ -1,11 +1,13 @@
 import Link from 'next/link';
 import { useRouter } from 'next/router';
+import { useSession, signIn, signOut } from 'next-auth/react';
 
 /**
  * NavBar component for the application.
  */
 export const NavBar = () => {
   const { pathname } = useRouter();
+  const { data: session } = useSession();
 
   const isActive = (path) => pathname === path;
 
@@ -25,8 +27,11 @@ export const NavBar = () => {
             </a>
           </Link>
         </div>
-
-        <div>Login</div>
+        {session ? (
+          <button onClick={() => signOut()}>Sign out</button>
+        ) : (
+          <button onClick={() => signIn()}>Sign in</button>
+        )}
       </div>
     </nav>
   );
