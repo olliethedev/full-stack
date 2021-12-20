@@ -52,41 +52,68 @@ Update this README file by answering the questions below.
 
 ### Date Or Reflection
 
-The date you're submitting this.
+December 19, 2021
 
 ### Location of deployed application (not necessary for Junior Engineers)
 
-Please provide the url where we can find and interact with your running application.
+https://full-stack-journal.olliecodes.com/
 
 ### Instructions to run assignment locally
 
-Please provide us with the necessary instructions to run your solution if it is implemented with technologies different from the starting repo.
+Same as above but include `--schema=./prisma/local.schema.prisma` in the command setting up local database.
 
 ### Time spent
 
-How much time did you spend on the assignment? Normally, this is expressed in hours.
+Approximately 5 hours
 
 ### Assumptions made
 
-Use this section to tell us about any assumptions that you made when creating your solution.
+Using css frameworks is allowed.
+Using authentication libraries is allowed.
 
 ### Shortcuts/Compromises made
 
-If applicable. Did you do something that you feel could have been done better in a real-world application? Please let us know.
+- Better error handling could be added.
+- Loading states could be added.
+- Auth callback could be handled to generate a new user if the user is not found.
+- End-to-end testing could be added.
+- UI components and styles could be refactored to be more reusable.
 
 ### Assume your application will go into production...
 
 #### 1) What would be your approach to ensuring the application is ready for production (testing)?
+- Add full test coverage.
+- Configure a CI/CD pipeline.
+- Make sure hosting solution is adequate for the application.
+- Make sure the database hosting is set up properly and is scalable to handle production traffic.
+- Add alternative authentication providers.
+- Makesure OAuth providers are properly configured.
+- Handle authentication callbacks on the backend.
+- Handle loading states on the front end.
+- Handle error states on the front end and on the backend.
 
 #### 2) How would you ensure a smooth user experience as 1000’s of users start using your app simultaneously?
+- Make sure frontend and backend are hosted and configured properly to handle production traffic.
+- Research alternative database solutions that might provide better performance.
+- Leverage full SSR capabilities to render the frontend more efficiently.
+- Add analytics to track user behavior.
+- Add error tracking to the application.
 
 #### 3) What key steps would you take to ensure application security?
+- Make sure the application is not exposing any sensitive information, like passwords, tokens, etc.
+- Make sure the application is not vulnerable to classic cyber attacks, like brute force attacks, sql injection, XSS, ddos, etc.
+- Make sure user session is properly configured and secured.
+- Use static analysis tools to find vulnerabilities in the application.
 
 ### What did you not include in your solution that you want us to know about? Were you short on time and not able to include something that you want us to know about? Please list it here so that we know that you considered it.
+- Customizing the SignIn page.
+- Adding alternative authentication providers.
+- Loading states.
+- Error states.
 
 ### Other information about your submission that you feel it's important that we know if applicable.
 
 ### Your feedback on this technical challenge
 
-Have feedback for how we could make this assignment better? Please let us know.
+Really enjoyed this challenge. I learned alot about Prisma ORM. Would have like to see more details about styling the frontend in the project document.
 
